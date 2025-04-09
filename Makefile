@@ -1,4 +1,4 @@
-.PHONY: test
+.PHONY: test run
 
 build:
 	@echo "Building the project..."
