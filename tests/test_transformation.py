@@ -4,7 +4,6 @@ from csv_transformer.types import TransformerEnum
 from csv_transformer.transformation import transform_data
 
 class TestTransformData(unittest.TestCase):
-
 	def setUp(self):
 		self.data = [
 				{'user_id': 'EFEABEA5-981B-4E45-8F13-425C456BF7F6', 'manager_id': 'CDD3AA5D-F8BF-40BB-B220-36147E1B75F7', 'name': 'John Doe', 'email_address': 'john.doe@example.com', 'start_date': '2025-Mar-01'},

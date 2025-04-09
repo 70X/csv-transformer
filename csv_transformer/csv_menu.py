@@ -19,10 +19,7 @@ class CSVMenu:
 			if isinstance(value, dict):
 				print(f"{key}: {{")
 				for sub_key, sub_value in value.items():
-					# if isinstance(sub_value, Transformer):
-					# 		print(f"\t{sub_key}: {sub_value.__class__.__name__}")
-					# else:
-							print(f"\t{sub_key}: {sub_value}")
+					print(f"\t{sub_key}: {sub_value}")
 				print("}")
 			else:
 					print(f"{key}: {value}")

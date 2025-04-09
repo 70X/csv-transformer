@@ -45,6 +45,6 @@ class TimestampConverterTransformer(Transformer):
 			}
 			parsed_date = parser.parse(data, tzinfos=tzinfos)
 			return parsed_date.strftime("%Y-%m-%d")
-		except Exception as e:
+		except Exception:
 			raise ValueError(f"The provided data '{data}' is not a valid date.")
           
