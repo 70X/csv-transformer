@@ -3,6 +3,7 @@ import random
 import uuid
 from dateutil import parser
 from typing import Any, Dict, Optional
+import pytz
           
 class Transformer(ABC):
 	@abstractmethod
@@ -39,7 +40,10 @@ class SensitiveDataTransformer(Transformer):
 class TimestampConverterTransformer(Transformer):
 	def transform(self, data: Any) -> str:
 		try:
-			parsed_date = parser.parse(data)
+			tzinfos = {
+				'CET': pytz.timezone('Europe/Paris')
+			}
+			parsed_date = parser.parse(data, tzinfos=tzinfos)
 			return parsed_date.strftime("%Y-%m-%d")
 		except Exception as e:
 			raise ValueError(f"The provided data '{data}' is not a valid date.")
