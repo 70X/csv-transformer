@@ -98,13 +98,11 @@ Displays the current user choices. You can run this by typing `p` or `7`.
 To handle large datasets (e.g. `1,000,000+ rows`) efficiently, I would keep the structure of `main.py` largely unchanged, while making targeted improvements to the data processing flow. Specifically:
 
 - **Header Handling**: Read the CSV headers once at the beginning, as is currently done.
-- **Chunked Processing**: During the run phase (r or 5), process the input file in chunks (e.g. `1,000 rows` at a time) instead of loading the entire dataset into memory.
+- **Chunked Processing**: During the run phase (`r` or `5`), process the input file in chunks (e.g. `1,000 rows` at a time) instead of loading the entire dataset into memory.
 - **Modify CSVHeader Class**: Extend the class to support chunked reading and append-mode writing.
 - **Streaming Transformations**: Apply the transformation logic within the chunk processing loop, operating only on the current chunk to minimize memory usage.
 - **Incremental Writing**: Write each processed chunk directly to the output file in append mode, ensuring the application remains memory-efficient and responsive even with very large input files.
 
 This approach allows the program to scale gracefully with available system resources and avoids memory bottlenecks, while maintaining the existing menu-driven interface and user experience.
-
-This chunk-based approach can also be extended to run multiple jobs in parallel, further speeding up the processing time.
 
 In cases where I/O becomes a bottleneck or disk space is limited (e.g., with CSV files larger than 500 MB), it's possible to use Python’s built-in gzip module to read from or write to compressed .csv.gz files directly, without extracting them to disk and applying the chunk logic as well.
