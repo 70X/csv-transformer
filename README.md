@@ -2,7 +2,7 @@
 
 A small Python command-line application that allows you to transform an existing CSV dataset into a different format.
 
-For more details about the requirements, please refer to the [CHALLENGE file](./CHALLENGE.pdf).
+For more details about the requirements, please refer to the [CHALLENGE file](./CHALLENGE.md).
 
 ## Prerequisites
 
